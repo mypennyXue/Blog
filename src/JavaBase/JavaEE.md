@@ -95,10 +95,67 @@
    transient 只能修饰变量 不能修饰类和方法
    - transient 变量不再是对象持久化的一部分，该变量内容在序列后无法取得访问
    - transient 只能修饰变量 不能修饰方法和类 
- 
- 
- 
+   
+##Object 常用方法
+ - public final native Classs<T> getClass();
+ - public native int hashCode();
+ - public boolean equal(Object o);
+ - proteced native Object clone() throws CloneNotSupportException;
+ - public String getString();
+ - public native void notify();
+ - public native void wait(Long timeout) throws InterruptException;
+ - public native void wait(Long timeout ,int nanao) throws InterruptException;
+ - public native void wait() throw InterruptException;
+ - public void finalize throws Throwable;
+###equal 
+ - equal 与 == 的区别：
+ 对于基本类型 == 是判断两个变量的值是否相等 没有equal() 方法
+ - 对于引用类型 == 判断两个变量是否引用的是同一个对象 而 equal 判断的是两个对象是否等价
+ - hashcode()
+ hashCode() 返回的是对象的散列值而equal()是用来判两个对象是否等价 hashCode相等的两个对象一定等价
+ 等价的两个对象hashCode不一定相等
+ - clone()
+  clone() 是Object 的一个protected 的方法 如果一个类没有显示的重写clone()方法 就不能调用clone方法
+  - 深度拷贝和浅拷贝 ： 深拷贝 拷贝对象和原始对象引用同一个对象 浅拷贝 拷贝对象和原始对象 引用不同对象
+  # 关键字
+  ##final 
+  - 申明变量是 基本数据的值不能改变 引用变量不能引用其他的对象 但是被引用的对象本身的值可以修改
+  - 申明方法 方法不能被重写 private 方法 被隐式的指定为final 如果一个子类中定义的方法和基类的private 方法签名相同 
+  此时不是重写而是重新定义了一个方法
+  - 申明类 类不能被继承
+  ##static
+  - 静态变量 类所有的实例都共享静态变量 静态变量在内存中只存在一份
+  - 实例变量 每创建一个实例就会创建一个实例变量与该实例同生共死  
+  - 静态方法 静态方法在类加载的时候就存在了 不依赖任何实例 所以静态方法必须要有实现 不能是abstract的 
+  静态方法只能访问静态的方法或者变量 方法中不能有this 或者super这样的关键字
+  - 静态语句块 在类初始化时执行一次
+  - 静态内部类：非静态内部类需要依赖外部类实例 静态内部类不需要 静态内部类 不能访问外部类的非静态变量和方法
+  - 静态导入包 ： 在使用静态变量和方法时不用指定className 
+  ##初始化顺序
+  - 静态变量和静态语句块 优先于 实例变量和普通语句块  静态变量和静态语句块初始化顺序取决于他们在代码中
+  的顺序 最后才是 构造函数
+  - 存在继承关系的时候初始化顺序 父类（静态变量和静态语句块） 子类（静态变量和静态语句块） 
+  父类（实例变量和普通语句块） 父类（构造） 子类（实例变量和普通语句块） 子类（构造）
+  
+  #反射
+  - 每个类都有一个Class对象 包含了与类有关的信息 编译一个类时 会产生一个同名的.class文件 
+  该文件保存着Class对象 类加载相当于Class对象的加载 类在第一次使用的时候才动态的加载到jvm
+  可以使用Class.forName("") 的方式来控制类的加载 这个方法会返回一个Class对象 
+  
+  # 异常
+Throwable 可以用来表示任何可以作为异常抛出的类 分为两种: ERROR 和EXCEPTION
+- ERROR 表示JVM无法处理的错误
+- exception 分为两种 受检异常（需要使用try ...catch ...b捕获处理 比并能重异常中恢复  ）
+和非受检异常 （是程序运行时的错误 此时程序崩溃并且不能恢复） 
+# 泛型
+# 注解
+# 特性   
+  
+   
+                                                     
+                              
+                                                     
 
-    
+                                                      
 
  
