@@ -4,12 +4,16 @@ public class IntegerTest {
 
 
 	public static void main(String[] args) {
-		Integer x = new Integer(123);
-		Integer y = new Integer(123);
-		System.out.println(x == y);
-		Integer z = Integer.valueOf(123);
-		Integer k = Integer.valueOf(123);
-		System.out.println(z == k);
+		int count = 0;
+		int num = 0 ;
+		for (int i = 0;i<= 100; i++) {
+			num = num+i;
+			count = ++count;
+		}
+		System.out.println("num * count" + (num * count));
+
+		long test = 12;
+		float f = 12;
 	}
 
 }
