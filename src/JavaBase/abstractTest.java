@@ -1,5 +1,15 @@
 package JavaBase;
 
-abstract class abstractTest {
-	abstract public void test();
+
+class test {
+	String name;
+	class testinner{
+		public void tets() {
+			System.out.println(name);
+		}
+	}
+
+	public static void main(String[] args) {
+
+	}
 }
